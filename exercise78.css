@@ -1,0 +1,74 @@
+/* SECTION 1: STYLES FOR PRESENTATION */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie {
+  height: 90%;
+  width: 60%;
+  background-color: aqua;
+}
+
+.top-field {
+  background-color: white;
+  height: 70%;
+  overflow: hidden;
+}
+
+.ground {
+  background-color: burlywood;
+  height: 30%;
+}
+
+/* SECTION 2: CREATION OF THE ANIMATION */
+
+.basketball {
+  width: 15%;
+  position: relative;
+  bottom: 20%;
+  left: 45%;
+  animation-name: rotation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.window {
+  position: relative;
+  top: 5%;
+  left: 100%;
+  width: 35%;
+  animation-name: translation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+/* SECTION 3: DEFINING THE @keyframes */
+/* The ball will rotate */
+@keyframes rotation {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* The window will move from right to left */
+@keyframes translation {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-390%);
+  }
+}

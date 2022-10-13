@@ -1,0 +1,83 @@
+/* SECTION 1: STYLES FOR PRESENTATION */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body,
+html {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
+.main-container div {
+  background-color: rebeccapurple;
+  border: solid;
+  border-color: red;
+  color: aliceblue;
+  font-size: 3em;
+}
+
+/* SECTION 2: CREATION OF THE GRID */
+.main-container {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+/* SECTION 3: MAKING THE GRID RESPONSIBLE */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .main-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(8, 150px);
+    height: auto;
+  }
+
+  .main-container div {
+    background-color: rebeccapurple;
+    border: solid;
+    border-color: red;
+    color: aliceblue;
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(16, 150px);
+    height: auto;
+  }
+
+  .main-container div {
+    background-color: rebeccapurple;
+    border: solid;
+    border-color: red;
+    color: aliceblue;
+    font-size: 4em;
+  }
+}
+
+/* For a large number of albums: */
+/* 1 - Let's say N is the number of albums */
+/* 2 - N > 100000 */
+/* 3 -Suposing we want 4 columns, then we need to add: */
+/* grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(n_rows, 150px); */
+/* where: n_rows = N/4 */
+/* 4- To make it responsible: */
+/* TABLET:
+@media (min-width: 768px) and (max-width: 1024px) {
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(tablet, 150px);
+where: tablet=2*n_rows
+MOBILE:
+@media (max-width: 767px){
+grid-template-columns: repeat(1, 1fr);
+grid-template-rows: repeat(N, 150px);
+where: tablet=2*n_rows
+} */

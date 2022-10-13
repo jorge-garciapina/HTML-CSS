@@ -1,0 +1,57 @@
+/* SECTION 1: STYLES FOR PRESENTATION */
+body {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.word-container {
+  /* Visual parameters of the container */
+  background-color: aliceblue;
+  width: 80vw;
+  height: auto;
+  border-radius: 10px;
+
+  /* Parameters for the elements inside the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 7em;
+}
+
+/* SECTION 2: STYLE FOR THE LETTERS */
+/* Relative is make for the pop-up to appear
+below the letter */
+.letter {
+  position: relative;
+  cursor: pointer;
+}
+
+/* SECTION 3: ADDING THE FUNCTIONALITY */
+
+/* The pop-up will be a new element at the bottom of 
+the letter */
+.letter:hover::after {
+  /* 1 CONTENT TO BE DISPLAYED */
+  /* The new content is the ID of every letter 
+  I decided present this parameter just for
+  convinience*/
+  content: attr(id);
+
+  /* 2 LOCATION OF THE POP-UP */
+  /* With this parameters, the pop-up will be
+  located below the letter */
+  position: absolute;
+  left: 20%;
+  bottom: -10%;
+
+  /* 3 STYLES TO THE TEXT INSIDE THE POP-UP */
+  background: #eee;
+  font-size: 0.2em;
+  color: black;
+  white-space: nowrap;
+  border-radius: 10px;
+  width: auto;
+  padding: 5px;
+}

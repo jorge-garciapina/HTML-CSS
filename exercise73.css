@@ -1,0 +1,108 @@
+/* SECTION 1: STYLES FOR PRESENTATION */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container {
+  background-color: aliceblue;
+  width: 60%;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container h1 {
+  font-size: 3em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+/* SECTION 2: STYLE FOR THE MAIN CONTAINER (WHERE THE SLIDER IS) */
+
+#carousel ul {
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* SECTION 3: STYLES AND INDICATIONS (FOR THE ANIMATION) 
+FOR THE SLIDES */
+#image1 {
+  position: relative;
+  animation-name: translation1;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+#image2 {
+  position: relative;
+  animation-name: translation2;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+#image3 {
+  position: relative;
+  animation-name: translation3;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+/* SECTION 4: DEFINITIONS OF THE @keyframes */
+
+/* For image1 */
+@keyframes translation1 {
+  0% {
+    transform: translateY(0);
+  }
+  33% {
+    transform: translateY(-100%);
+  }
+  66% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+/* For image2 */
+@keyframes translation2 {
+  0% {
+    transform: translateY(0);
+  }
+  33% {
+    transform: translateY(-100%);
+  }
+  66% {
+    transform: translateY(-200%);
+  }
+  100% {
+    transform: translateY(-300%);
+  }
+}
+
+/* For image3 */
+@keyframes translation3 {
+  0% {
+    transform: translateY(0);
+  }
+  33% {
+    transform: translateY(-100%);
+  }
+  66% {
+    transform: translateY(-200%);
+  }
+  100% {
+    transform: translateY(-300%);
+  }
+}

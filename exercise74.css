@@ -1,0 +1,120 @@
+/* SECTION 1: STYLES FOR PRESENTATION */
+/* Basic styling: */
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  background-color: #18224b;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* For the headerr/navigation menu:  */
+
+.navigation-menu ul {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+.navigation-menu ul li {
+  list-style: none;
+  flex-grow: 1;
+  font-size: 2em;
+}
+
+.navigation-menu ul li a {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  font-size: 1.2em;
+  width: 100%;
+  height: 100%;
+}
+
+.navigation-menu ul li a:hover {
+  color: red;
+}
+
+/* For the footer */
+
+main div h2,
+footer h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 3em;
+  margin: 0;
+}
+
+/* SECTION 2: STYLES TO FULLFILL THE CONDITIONS IN THE 
+PROBLEM */
+
+/* 1-The two content elements and side element must be next 
+to each other: 
+2-Total sum of the 3 elements must be 100% */
+/* This conditions are fullfill 
+using the width: 40% + 40% + 20% = 100%  */
+.content-1 {
+  height: 100%;
+  width: 40%;
+  background-color: #295f4e;
+}
+
+.content-2 {
+  height: 100%;
+  width: 40%;
+  background-color: #6db193;
+}
+
+.side {
+  height: 100%;
+  width: 20%;
+  background-color: #f4e5c2;
+}
+
+/* 3-These three elements must be vertically aligned */
+/* This condition is fullfill when we choose the contitions:
+display: flex;
+flex-direction: row;*/
+main {
+  width: 100%;
+  height: calc((100% - 200px) * 0.9);
+  background-color: #de1b4a;
+  display: flex;
+  flex-direction: row;
+}
+
+/* 4-The footer should have a width of 100% and a 
+height of 200px */
+
+footer {
+  height: 200px;
+  width: 100%;
+  background-color: #5a37c3;
+}
+
+header {
+  width: 100%;
+  height: calc((100% - 200px) * 0.1);
+  margin: 0;
+  background-color: #f4e022;
+}
+
+/* 6 Make the height of the 3 elements be 100% */
+/* To fulfill this contition we used the calc()
+as follows:  */
+/* main {
+  height: calc((100% - 200px) * 0.9);
+
+}
+header {
+  height: calc((100% - 200px) * 0.1);
+
+}
+footer {
+  height: 200px;
+} */

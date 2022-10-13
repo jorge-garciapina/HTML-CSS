@@ -1,0 +1,237 @@
+/* SECTION 1: STYLES FOR PRESENTATION */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15%;
+}
+
+/* SECTION 2: HIDE THE TOGGLE OF THE CHECKBOXES */
+/* Hide the toggle checkbox */
+[type="checkbox"] {
+  display: none;
+}
+.menu-container {
+  border: solid;
+}
+
+/* SECTION 3: HIDE THE NAVIGATION AND DROP-DOWN MENUS */
+
+.navigation-top, /*    A) Navigation at the TOP of the page */
+.navigation-bottom, /* B) Navigation at the BOTTOM of the page */
+.navigation-left, /*   C) Navigation at the LEFT of the page */
+.navigation-right /*   D) Navigation at the RIGHT of the page */ {
+  display: none;
+}
+
+/* The menu only exist when hover on .drop-item */
+.drop-menu-t,
+.drop-menu-b,
+.drop-menu-left,
+.drop-menu-r {
+  display: none;
+}
+
+/* SECTION 4: STYLES FOR MAKING EVERYTHING LOOK GOOD (AT LEAST DECENT) */
+
+.menu-container nav {
+  background-color: aquamarine;
+  border: solid;
+}
+.menu-container h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* There are two menu configurations:  */
+/* A) horizontal (top, bottom): */
+.menu-horizontal {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+/* B) Vertical (left,right) */
+.menu-vertical {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* For the list items (in the menu): */
+.navigation-item {
+  /* Style of the contents inside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+
+  /* Display of the text inside */
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+
+  /* Location and size of this element */
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/* Style of the element when hover */
+.navigation-item:hover {
+  color: aliceblue;
+  background-color: blue;
+}
+
+/* Style of the elements in the drop-down menu */
+.drop-item {
+  /* Style of the contents inside */
+  display: inline-flex;
+  justify-content: center;
+
+  /* Display of the text inside */
+  text-align: left;
+
+  /* Location and size of this element */
+  position: relative;
+  width: 120px;
+  margin-top: 10px;
+}
+
+/* Style the button */
+#expand-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 11px;
+  background-color: #ff7;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+/* SECTION 5: SHOW THE MENUS IN THE CORRECT POSITIONS */
+
+/* This is for the menu at the top */
+#menu-top:checked ~ .navigation-top {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 90vw;
+  height: 10vh;
+}
+
+/* This is for the menu at the bottom */
+#menu-bottom:checked ~ .navigation-bottom {
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90vw;
+  height: 10vh;
+}
+
+/* This is for the menu at the left */
+#menu-left:checked ~ .navigation-left {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  top: 5%;
+  left: 0;
+  width: 5vw;
+  height: 90vh;
+}
+
+/* This is for the menu at the right */
+#menu-right:checked ~ .navigation-right {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  top: 5%;
+  right: 0;
+  width: 5vw;
+  height: 90vh;
+}
+/* Style the button when the checkbox is checked */
+#expand-toggle:checked ~ #expand-btn {
+  background-color: #ccc;
+}
+
+/* SECTION 6: STYLE OF THE DROP-DOWN MENUS */
+/* Style of the menu once .drop-item is hover: */
+.navigation-item:hover .drop-menu-t {
+  /* Style of the contents inside */
+  display: flex;
+  flex-direction: column;
+
+  /* Display of this element */
+  background-color: blueviolet;
+
+  /* Location and size of this element */
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 100%;
+}
+
+.navigation-item:hover .drop-menu-b {
+  /* Style of the contents inside */
+  display: flex;
+  flex-direction: column;
+
+  /* Display of this element */
+  background-color: blueviolet;
+
+  /* Location and size of this element */
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  bottom: 100%;
+}
+
+.navigation-item:hover .drop-menu-left {
+  /* Style of the contents inside */
+  display: flex;
+  flex-direction: column;
+
+  /* Display of this element */
+  background-color: blueviolet;
+
+  /* Location and size of this element */
+  position: absolute;
+  height: auto;
+  left: 100%;
+}
+
+.navigation-item:hover .drop-menu-r {
+  /* Style of the contents inside */
+  display: flex;
+  flex-direction: column;
+
+  /* Display of this element */
+  background-color: blueviolet;
+
+  /* Location and size of this element */
+  position: absolute;
+  height: 80%;
+  right: 100%;
+}

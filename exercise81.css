@@ -1,0 +1,82 @@
+/* SECTION 1: STYLES FOR PRESENTATION */
+html,
+body {
+  background-color: #222831;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  background-color: #f2f2f2;
+  font-size: 2em;
+  width: 90%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  background-color: #f96d00;
+  width: 90%;
+  height: 80%;
+  display: flex;
+  box-sizing: border-box;
+}
+
+main div p {
+  color: aliceblue;
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+footer {
+  background-color: #393e46;
+  width: 90%;
+  height: 10%;
+}
+
+footer h2 {
+  color: #f2f2f2;
+  font-size: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SECTION 2: CONDITIONS OF THE EXERCISE:  */
+/* Each element  has additional padding and a border.  */
+.lft_container {
+  margin: 100px;
+  padding: 80px;
+}
+
+.rgt_container {
+  margin: 150px;
+  padding: 90px;
+}
+/* Make sure the parent does not overflow */
+/* Make sure the elements do not cause a break line. */
+.left,
+.right {
+  border: solid;
+  display: flex;
+  max-width: 50%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.lft_container,
+.rgt_container {
+  width: 50%;
+  height: 100%;
+  overflow: scroll;
+  background-color: #680747;
+}

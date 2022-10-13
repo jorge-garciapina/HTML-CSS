@@ -1,0 +1,23 @@
+body {
+  /* I change this color to work easily */
+  background-color: black;
+}
+
+.navigation_menu {
+  background-color: rebeccapurple;
+  display: flex;
+}
+
+.navigation_item {
+  /* Every child recives the same amount of space */
+  flex-grow: 1;
+}
+
+.navigation_item:nth-child(even) {
+  background-color: red;
+}
+
+a {
+  font-size: 3vw;
+  display: ;
+}
