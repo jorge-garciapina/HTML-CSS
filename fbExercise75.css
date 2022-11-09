@@ -1,0 +1,62 @@
+/* SECTION 1: STYLES FOR PRESENTATION */
+body {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.word-container {
+  /* Visual parameters of the container */
+  background-color: aliceblue;
+  width: 80vw;
+  height: auto;
+  border-radius: 10px;
+
+  /* Parameters for the elements inside the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 7em;
+}
+
+/* SECTION 2: STYLE FOR THE LETTERS */
+/* Relative is make for the pop-up to appear
+below the letter */
+.letter {
+  position: relative;
+  cursor: pointer;
+}
+
+/* SECTION 3: ADDING THE FUNCTIONALITY */
+
+.letter:hover:after {
+  content: attr(id);
+  position: absolute;
+  color: black;
+  top: 0;
+  left: 0;
+  animation-name: animationLetter;
+  animation-duration: 0.5s;
+  animation-iteration-count: initial;
+}
+
+@keyframes animationLetter {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50%);
+    color: grey;
+  }
+
+  75% {
+    transform: translateY(10%);
+    color: grey;
+  }
+
+  100% {
+    transform: translateY(0%);
+    color: black;
+  }
+}

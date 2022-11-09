@@ -1,0 +1,228 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.5rem;
+  background-color: #c3e0e5;
+}
+
+.expand-btn {
+  background-color: #5885af;
+  margin-left: 5px;
+  border: solid;
+  border-radius: 5px;
+}
+
+.bar {
+  /* For the elements inside: */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* For the position in the page: */
+  position: absolute;
+  width: 90vw;
+  height: 10vh;
+  top: 7%;
+  right: 5%;
+  background-color: black;
+  border-radius: 15px;
+}
+
+.navigation {
+  /* For the navigation whithin: */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* background-color: aqua; */
+  height: 100%;
+  border-radius: 15px;
+}
+
+.menu {
+  /* To set the direction of the navigation items */
+  display: flex;
+  flex-direction: row;
+
+  /* background-color: blue; */
+  height: 100%;
+
+  margin: 0;
+}
+
+.navigation-item {
+  /* To set the size, with respect .menu:  */
+  flex-grow: 1;
+
+  /* To align format the navigation items: */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* To format the text:  */
+  font-size: 2rem;
+  color: aliceblue;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.navigation-item:hover {
+  color: beige;
+  background-color: #41729f;
+  border-radius: 5px;
+}
+
+.drop-menu {
+  display: none;
+}
+.navigation-item:hover .drop-menu {
+  /* Style of the contents inside */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  /* Display of this element */
+  background-color: #5885af;
+  border-radius: 5px;
+  color: aliceblue;
+
+  /* Location and size of this element */
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  left: 0;
+  top: 100%;
+
+  padding: 0;
+}
+
+.drop-item {
+  flex-grow: 1;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rebeccapurple; */
+}
+
+/*---------------------------------------------------- */
+/*-----------START: FORMAT OF THE BOTTOM MENU----------- */
+#menu-bottom:checked ~ .bar {
+  width: 90vw;
+  height: 10vh;
+  top: 90%;
+  right: 5%;
+}
+#menu-bottom:checked
+  ~ .bar
+  .navigation
+  .menu
+  .navigation-item:hover
+  .drop-menu {
+  height: 50%;
+  width: 100%;
+  left: 0;
+  top: -50%;
+}
+
+/*-----------END: FORMAT OF THE LEFT MENU----------- */
+/*---------------------------------------------------- */
+
+/*---------------------------------------------------- */
+/*-----------START: FORMAT OF THE LEFT MENU----------- */
+#menu-left:checked ~ .bar {
+  /* For the elements inside: */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 5vw;
+  height: 95vh;
+  top: 5%;
+  left: 0%;
+}
+
+#menu-left:checked ~ .bar .navigation .menu .navigation-item {
+  width: 100%;
+}
+
+/* To have the correct presentation in the left menu */
+#menu-left:checked ~ .bar .navigation .menu {
+  /* To format the elemets in the navigation menu */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 95%;
+  padding: 0;
+  /* background-color: red; */
+}
+
+#menu-left:checked ~ .bar .navigation .menu .navigation-item:hover .drop-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 100%;
+  width: 150%;
+  left: 100%;
+  top: 0;
+  font-size: 1.5rem;
+  padding: 1%;
+}
+/*-----------END: FORMAT OF THE LEFT MENU----------- */
+/*---------------------------------------------------- */
+
+/*---------------------------------------------------- */
+/*-----------START: FORMAT OF THE RIGHT MENU----------- */
+#menu-right:checked ~ .bar {
+  /* For the elements inside: */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 5vw;
+  height: 95vh;
+  top: 5%;
+  right: 0%;
+}
+#menu-right:checked ~ .bar .navigation .menu .navigation-item {
+  width: 100%;
+}
+
+/* To have the correct presentation in the right menu */
+#menu-right:checked ~ .bar .navigation .menu {
+  /* To format the elemets in the navigation menu */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 95%;
+  padding: 0;
+  /* background-color: red; */
+}
+
+#menu-right:checked ~ .bar .navigation .menu .navigation-item:hover .drop-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 100%;
+  width: 150%;
+  left: -150%;
+  top: 0;
+  font-size: 1.5rem;
+  padding: 1%;
+}
+
+/*-----------END: FORMAT OF THE RIGHT MENU----------- */
+/*---------------------------------------------------- */

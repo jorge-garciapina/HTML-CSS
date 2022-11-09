@@ -1,0 +1,153 @@
+.link:link {
+  color: red;
+}
+
+/* SECTION 1: STYLES FOR PRESENTATION */
+body {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.evaluation {
+  width: 82vw;
+  height: 50vh;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aliceblue;
+}
+
+.link:link {
+  color: red;
+}
+
+body h1 {
+  font-size: 50px;
+}
+/* SECTION 2: HIDE THE TOGGLE (THIS IS JUST PRESENTATION) */
+.rating input {
+  display: none;
+}
+
+/* SECTION 3: CREATION OF THE RATING-STARS */
+
+@media (min-width: 1025px) {
+  .rating label {
+    /* parameters to label, cursor is optional */
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    background-image: url("images/sprite72.png");
+    background-size: 500%;
+    background-repeat: no-repeat;
+  }
+
+  .rating label:after {
+    content: "";
+
+    /* to have the selection star infront of the other  */
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-image: url("images/sprite72.png");
+    background-size: 500%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    /* they are invisible until they are "activated" */
+    opacity: 0;
+  }
+}
+
+/* SECTION 3: RESPONSIBLE */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .rating label {
+    /* parameters to label, cursor is optional */
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    background-image: url("images/sprite72.png");
+    background-size: 500%;
+    background-repeat: no-repeat;
+  }
+
+  .rating label:after {
+    content: "";
+
+    /* to have the selection star infront of the other  */
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url("images/sprite72.png");
+    background-size: 500%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    /* they are invisible until they are "activated" */
+    opacity: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .rating label {
+    /* parameters to label, cursor is optional */
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-image: url("images/sprite72.png");
+    background-size: 500%;
+    background-repeat: no-repeat;
+  }
+
+  .rating label:after {
+    content: "";
+
+    /* to have the selection star infront of the other  */
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url("images/sprite72.png");
+    background-size: 500%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    /* they are invisible until they are "activated" */
+    opacity: 0;
+  }
+}
+
+/* SECTION 4: ADDING THE FUNCTIONALITY TO RATING STAR SYSTEM */
+
+/* 1 Change star's color when hovered:
+Notes:
+-This General Sibling Combinator selects...
+all pseudo-elements: "label:after" after the hovered input.
+-This is a non persistent change i.e. the change is 
+forgotten if the input is unhovered.
+*/
+.rating input:hover ~ label:after {
+  opacity: 1;
+}
+
+/* 2 Change star's color when checked:
+Notes:
+-This General Sibling Combinator selects...
+all pseudo-elements: "label:after" after "input:checked".
+-This change is persistent
+*/
+.rating input:checked ~ label:after {
+  opacity: 1;
+  /* background-size: 100%; */
+}
+
+/* SECTION 5: STYLING THE OUTPUT.  */
+/* This is make to have the stars in the correct direction. */
+.rating {
+  /* this is here to make all atars to be in one line: */
+  display: flex;
+
+  /* this is here to because of the...*/
+  /* ... General Sibling Combinator ~ */
+  transform: rotateY(180deg);
+}
