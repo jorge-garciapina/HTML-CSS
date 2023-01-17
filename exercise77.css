@@ -10,31 +10,11 @@ body {
   padding-top: 15%;
 }
 
-/* SECTION 2: HIDE THE TOGGLE OF THE CHECKBOXES */
-/* Hide the toggle checkbox */
-[type="checkbox"] {
-  display: none;
-}
+
 .menu-container {
   border: solid;
 }
 
-/* SECTION 3: HIDE THE NAVIGATION AND DROP-DOWN MENUS */
-
-.navigation-top, /*    A) Navigation at the TOP of the page */
-.navigation-bottom, /* B) Navigation at the BOTTOM of the page */
-.navigation-left, /*   C) Navigation at the LEFT of the page */
-.navigation-right /*   D) Navigation at the RIGHT of the page */ {
-  display: none;
-}
-
-/* The menu only exist when hover on .drop-item */
-.drop-menu-t,
-.drop-menu-b,
-.drop-menu-left,
-.drop-menu-r {
-  display: none;
-}
 
 /* SECTION 4: STYLES FOR MAKING EVERYTHING LOOK GOOD (AT LEAST DECENT) */
 
@@ -114,7 +94,7 @@ body {
 }
 
 /* Style the button */
-#expand-btn {
+.expand-btn {
   display: inline-block;
   margin-top: 12px;
   padding: 5px 11px;
@@ -124,56 +104,52 @@ body {
 }
 
 /* SECTION 5: SHOW THE MENUS IN THE CORRECT POSITIONS */
-
-/* This is for the menu at the top */
-#menu-top:checked ~ .navigation-top {
-  display: flex;
+.navigation-top,
+.navigation-bottom {
   align-items: center;
   position: absolute;
+  left: 5%;
+  width: 90vw;
+  height: 10vh;
+}
+.navigation-left,
+.navigation-right {
+  top: 5%;
+  width: 5vw;
+  height: 90vh;
+  flex-direction: column;
+  position: absolute;
+}
+
+/*    A) Navigation at the TOP of the page */
+.navigation-top {
+  display: flex;
   top: 0;
-  left: 5%;
-  width: 90vw;
-  height: 10vh;
 }
 
-/* This is for the menu at the bottom */
-#menu-bottom:checked ~ .navigation-bottom {
-  display: flex;
-  align-items: center;
-
-  position: absolute;
+/* B) Navigation at the BOTTOM of the page */
+.navigation-bottom {
+  display: none;
   bottom: 0;
-  left: 5%;
-  width: 90vw;
-  height: 10vh;
 }
-
-/* This is for the menu at the left */
-#menu-left:checked ~ .navigation-left {
-  display: flex;
-  flex-direction: column;
-
-  position: absolute;
-  top: 5%;
+/* C) Navigation at the LEFT of the page */
+.navigation-left {
+  display: none;
   left: 0;
-  width: 5vw;
-  height: 90vh;
 }
 
-/* This is for the menu at the right */
-#menu-right:checked ~ .navigation-right {
-  display: flex;
-  flex-direction: column;
-
-  position: absolute;
-  top: 5%;
+/* D) Navigation at the RIGHT of the page */
+.navigation-right {
+  display: none;
   right: 0;
-  width: 5vw;
-  height: 90vh;
 }
-/* Style the button when the checkbox is checked */
-#expand-toggle:checked ~ #expand-btn {
-  background-color: #ccc;
+
+/* The menu only exist when hover on .drop-item */
+.drop-menu-t,
+.drop-menu-b,
+.drop-menu-left,
+.drop-menu-r {
+  display: none;
 }
 
 /* SECTION 6: STYLE OF THE DROP-DOWN MENUS */
