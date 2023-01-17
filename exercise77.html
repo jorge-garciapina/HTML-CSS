@@ -5,15 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exercise 77</title>
-    <link rel="stylesheet" href="exercise77.css" />
+    <link rel="stylesheet" href="77.css" />
   </head>
   <body>
-    
-    <div class="menu-container">
+    <div class="menu-container" id="main-container">
       <h1>Location of the menu</h1>
       <!-- CONTENT FOR THE TOP MENU -->
-      <input type="checkbox" id="menu-top" />
-      <nav class="navigation-top">
+      <nav class="navigation-top" id="nav-top">
         <ul class="menu-horizontal">
           <li class="navigation-item">
             Link 1
@@ -41,11 +39,10 @@
           </li>
         </ul>
       </nav>
-      <label for="menu-top" id="expand-btn">Menu at the top</label>
+      <button class="expand-btn" id="top">Menu at the top</button>
 
       <!-- CONTENT FOR THE BOTTOM MENU: -->
-      <input type="checkbox" id="menu-bottom" />
-      <nav class="navigation-bottom">
+      <nav class="navigation-bottom" id="nav-bottom">
         <ul class="menu-horizontal">
           <li class="navigation-item">
             Link 1
@@ -73,11 +70,10 @@
           </li>
         </ul>
       </nav>
-      <label for="menu-bottom" id="expand-btn">Menu at the bottom</label>
+      <button class="expand-btn" id="bottom">Menu at the bottom</button>
 
       <!-- CONTENT FOR THE LEFT MENU: -->
-      <input type="checkbox" id="menu-left" />
-      <nav class="navigation-left">
+      <nav class="navigation-left" id="nav-left">
         <ul class="menu-vertical">
           <li class="navigation-item">
             Link 1
@@ -105,11 +101,10 @@
           </li>
         </ul>
       </nav>
-      <label for="menu-left" id="expand-btn">Menu on the left</label>
+      <button class="expand-btn" id="left">Menu on the left</button>
 
       <!-- CONTENT FOR THE RIGHT MENU: -->
-      <input type="checkbox" id="menu-right" />
-      <nav class="navigation-right">
+      <nav class="navigation-right" id="nav-right">
         <ul class="menu-vertical">
           <li class="navigation-item">
             Link 1
@@ -137,6 +132,34 @@
           </li>
         </ul>
       </nav>
-      <label for="menu-right" id="expand-btn">Menu on the right</label>
+      <button class="expand-btn" id="right">Menu on the right</button>
     </div>
+  </body>
+  <script>
+    let mainContainer = document.getElementById("main-container");
+    let positions = {
+      top: "nav-top",
+      bottom: "nav-bottom",
+      left: "nav-left",
+      right: "nav-right",
+    };
+    mainContainer.addEventListener("click", (event) => {
+      if (event.target.tagName === "BUTTON") {
+        let elementId = event.srcElement.getAttribute("id");
+        let menuId = document
+          .getElementById(positions[elementId])
+          .getAttribute("id");
+
+        for (let value of Object.values(positions)) {
+          let currentMenu = document.getElementById(value);
+          let currentButton = document.getElementById(elementId);
+          if (value === menuId) {
+            currentMenu.style.display = "flex";
+          } else {
+            currentMenu.style.display = "none";
+          }
+        }
+      }
+    });
+  </script>
 </html>
