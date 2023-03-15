@@ -1,213 +1,58 @@
-/* SECTION 1: STYLES FOR PRESENTATION */
-* {
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 77</title>
+    <link rel="stylesheet" href="exercise77.css" />
+  </head>
+  <body>
+    <div class="menu-container">
+      <h1>Location of the menu</h1>
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 15%;
-}
+      <!-- RADIO BUTTONS FOR MENU POSITIONS -->
+      <input type="radio" name="menu-position" id="menu-top" checked />
+      <label for="menu-top">Menu at the top</label>
+      <input type="radio" name="menu-position" id="menu-bottom" />
+      <label for="menu-bottom">Menu at the bottom</label>
+      <input type="radio" name="menu-position" id="menu-left" />
+      <label for="menu-left">Menu on the left</label>
+      <input type="radio" name="menu-position" id="menu-right" />
+      <label for="menu-right">Menu on the right</label>
 
-
-.menu-container {
-  border: solid;
-}
-
-
-/* SECTION 4: STYLES FOR MAKING EVERYTHING LOOK GOOD (AT LEAST DECENT) */
-
-.menu-container nav {
-  background-color: aquamarine;
-  border: solid;
-}
-.menu-container h1 {
-  text-align: center;
-  font-size: 3rem;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* There are two menu configurations:  */
-/* A) horizontal (top, bottom): */
-.menu-horizontal {
-  display: flex;
-  list-style: none;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-/* B) Vertical (left,right) */
-.menu-vertical {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-/* For the list items (in the menu): */
-.navigation-item {
-  /* Style of the contents inside */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-
-  /* Display of the text inside */
-  font-size: 1.5rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-
-  /* Location and size of this element */
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-/* Style of the element when hover */
-.navigation-item:hover {
-  color: aliceblue;
-  background-color: blue;
-}
-
-/* Style of the elements in the drop-down menu */
-.drop-item {
-  /* Style of the contents inside */
-  display: inline-flex;
-  justify-content: center;
-
-  /* Display of the text inside */
-  text-align: left;
-
-  /* Location and size of this element */
-  position: relative;
-  width: 120px;
-  margin-top: 10px;
-}
-
-/* Style the button */
-.expand-btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 5px 11px;
-  background-color: #ff7;
-  border: 1px solid;
-  border-radius: 3px;
-}
-
-/* SECTION 5: SHOW THE MENUS IN THE CORRECT POSITIONS */
-.navigation-top,
-.navigation-bottom {
-  align-items: center;
-  position: absolute;
-  left: 5%;
-  width: 90vw;
-  height: 10vh;
-}
-.navigation-left,
-.navigation-right {
-  top: 5%;
-  width: 5vw;
-  height: 90vh;
-  flex-direction: column;
-  position: absolute;
-}
-
-/*    A) Navigation at the TOP of the page */
-.navigation-top {
-  display: flex;
-  top: 0;
-}
-
-/* B) Navigation at the BOTTOM of the page */
-.navigation-bottom {
-  display: none;
-  bottom: 0;
-}
-/* C) Navigation at the LEFT of the page */
-.navigation-left {
-  display: none;
-  left: 0;
-}
-
-/* D) Navigation at the RIGHT of the page */
-.navigation-right {
-  display: none;
-  right: 0;
-}
-
-/* The menu only exist when hover on .drop-item */
-.drop-menu-t,
-.drop-menu-b,
-.drop-menu-left,
-.drop-menu-r {
-  display: none;
-}
-
-/* SECTION 6: STYLE OF THE DROP-DOWN MENUS */
-/* Style of the menu once .drop-item is hover: */
-.navigation-item:hover .drop-menu-t {
-  /* Style of the contents inside */
-  display: flex;
-  flex-direction: column;
-
-  /* Display of this element */
-  background-color: blueviolet;
-
-  /* Location and size of this element */
-  position: absolute;
-  width: 80%;
-  left: 10%;
-  top: 100%;
-}
-
-.navigation-item:hover .drop-menu-b {
-  /* Style of the contents inside */
-  display: flex;
-  flex-direction: column;
-
-  /* Display of this element */
-  background-color: blueviolet;
-
-  /* Location and size of this element */
-  position: absolute;
-  width: 80%;
-  left: 10%;
-  bottom: 100%;
-}
-
-.navigation-item:hover .drop-menu-left {
-  /* Style of the contents inside */
-  display: flex;
-  flex-direction: column;
-
-  /* Display of this element */
-  background-color: blueviolet;
-
-  /* Location and size of this element */
-  position: absolute;
-  height: auto;
-  left: 100%;
-}
-
-.navigation-item:hover .drop-menu-r {
-  /* Style of the contents inside */
-  display: flex;
-  flex-direction: column;
-
-  /* Display of this element */
-  background-color: blueviolet;
-
-  /* Location and size of this element */
-  position: absolute;
-  height: 80%;
-  right: 100%;
-}
+      <!-- MENU CONTENT -->
+      <nav class="navigation">
+        <ul class="menu">
+          <li class="navigation-item">
+            Link 1
+            <ul class="drop-menu">
+              <li class="drop-item">Choice 1</li>
+              <li class="drop-item">Choice 2</li>
+              <li class="drop-item">Choice 3</li>
+              <li class="drop-item">Choice 4</li>
+            </ul>
+          </li>
+          <li class="navigation-item">
+            Link 2
+            <ul class="drop-menu">
+              <li class="drop-item">Choice 1</li>
+              <li class="drop-item">Choice 2</li>
+              <li class="drop-item">Choice 3</li>
+              <li class="drop-item">Choice 4</li>
+            </ul>
+          </li>
+          <li class="navigation-item">
+            Link 3
+            <ul class="drop-menu">
+              <li class="drop-item">Choice 1</li>
+              <li class="drop-item">Choice 2</li>
+              <li class="drop-item">Choice 3</li>
+              <li class="drop-item">Choice 4</li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>
