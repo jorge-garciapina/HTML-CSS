@@ -5,87 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exercise 77</title>
-    <link rel="stylesheet" href="77.css" />
+    <link rel="stylesheet" href="exercise77.css" />
   </head>
   <body>
-    <div class="menu-container" id="main-container">
+    <div class="menu-container">
       <h1>Location of the menu</h1>
-      <!-- CONTENT FOR THE TOP MENU -->
-      <nav class="navigation-top" id="nav-top">
-        <ul class="menu-horizontal">
-          <li class="navigation-item">
-            Link 1
-            <ul class="drop-menu-t">
-              <li class="drop-item">Choice 1</li>
-              <li class="drop-item">Choice 2</li>
-              <li class="drop-item">Choice 3</li>
-            </ul>
-          </li>
-          <li class="navigation-item">
-            Link 2
-            <ul class="drop-menu-t">
-              <li class="drop-item">Choice 1</li>
-              <li class="drop-item">Choice 2</li>
-              <li class="drop-item">Choice 3</li>
-              <li class="drop-item">Choice 4</li>
-            </ul>
-          </li>
-          <li class="navigation-item">
-            Link 3
-            <ul class="drop-menu-t">
-              <li class="drop-item">Choice 1</li>
-              <li class="drop-item">Choice 2</li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <button class="expand-btn" id="top">Menu at the top</button>
 
-      <!-- CONTENT FOR THE BOTTOM MENU: -->
-      <nav class="navigation-bottom" id="nav-bottom">
-        <ul class="menu-horizontal">
-          <li class="navigation-item">
-            Link 1
-            <ul class="drop-menu-b">
-              <li class="drop-item">Choice 1</li>
-              <li class="drop-item">Choice 2</li>
-              <li class="drop-item">Choice 3</li>
-            </ul>
-          </li>
-          <li class="navigation-item">
-            Link 2
-            <ul class="drop-menu-b">
-              <li class="drop-item">Choice 1</li>
-              <li class="drop-item">Choice 2</li>
-              <li class="drop-item">Choice 3</li>
-              <li class="drop-item">Choice 4</li>
-            </ul>
-          </li>
-          <li class="navigation-item">
-            Link 3
-            <ul class="drop-menu-b">
-              <li class="drop-item">Choice 1</li>
-              <li class="drop-item">Choice 2</li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <button class="expand-btn" id="bottom">Menu at the bottom</button>
+      <!-- RADIO BUTTONS FOR MENU POSITIONS -->
+      <input type="radio" name="menu-position" id="menu-top" checked />
+      <label for="menu-top">Menu at the top</label>
+      <input type="radio" name="menu-position" id="menu-bottom" />
+      <label for="menu-bottom">Menu at the bottom</label>
+      <input type="radio" name="menu-position" id="menu-left" />
+      <label for="menu-left">Menu on the left</label>
+      <input type="radio" name="menu-position" id="menu-right" />
+      <label for="menu-right">Menu on the right</label>
 
-      <!-- CONTENT FOR THE LEFT MENU: -->
-      <nav class="navigation-left" id="nav-left">
-        <ul class="menu-vertical">
+      <!-- MENU CONTENT -->
+      <nav class="navigation">
+        <ul class="menu">
           <li class="navigation-item">
             Link 1
-            <ul class="drop-menu-left">
+            <ul class="drop-menu">
               <li class="drop-item">Choice 1</li>
               <li class="drop-item">Choice 2</li>
               <li class="drop-item">Choice 3</li>
+              <li class="drop-item">Choice 4</li>
             </ul>
           </li>
           <li class="navigation-item">
             Link 2
-            <ul class="drop-menu-left">
+            <ul class="drop-menu">
               <li class="drop-item">Choice 1</li>
               <li class="drop-item">Choice 2</li>
               <li class="drop-item">Choice 3</li>
@@ -94,72 +44,15 @@
           </li>
           <li class="navigation-item">
             Link 3
-            <ul class="drop-menu-left">
-              <li class="drop-item">Choice 1</li>
-              <li class="drop-item">Choice 2</li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <button class="expand-btn" id="left">Menu on the left</button>
-
-      <!-- CONTENT FOR THE RIGHT MENU: -->
-      <nav class="navigation-right" id="nav-right">
-        <ul class="menu-vertical">
-          <li class="navigation-item">
-            Link 1
-            <ul class="drop-menu-r">
-              <li class="drop-item">Choice 1</li>
-              <li class="drop-item">Choice 2</li>
-              <li class="drop-item">Choice 3</li>
-            </ul>
-          </li>
-          <li class="navigation-item">
-            Link 2
-            <ul class="drop-menu-r">
+            <ul class="drop-menu">
               <li class="drop-item">Choice 1</li>
               <li class="drop-item">Choice 2</li>
               <li class="drop-item">Choice 3</li>
               <li class="drop-item">Choice 4</li>
             </ul>
           </li>
-          <li class="navigation-item">
-            Link 3
-            <ul class="drop-menu-r">
-              <li class="drop-item">Choice 1</li>
-              <li class="drop-item">Choice 2</li>
-            </ul>
-          </li>
         </ul>
       </nav>
-      <button class="expand-btn" id="right">Menu on the right</button>
     </div>
   </body>
-  <script>
-    let mainContainer = document.getElementById("main-container");
-    let positions = {
-      top: "nav-top",
-      bottom: "nav-bottom",
-      left: "nav-left",
-      right: "nav-right",
-    };
-    mainContainer.addEventListener("click", (event) => {
-      if (event.target.tagName === "BUTTON") {
-        let elementId = event.srcElement.getAttribute("id");
-        let menuId = document
-          .getElementById(positions[elementId])
-          .getAttribute("id");
-
-        for (let value of Object.values(positions)) {
-          let currentMenu = document.getElementById(value);
-          let currentButton = document.getElementById(elementId);
-          if (value === menuId) {
-            currentMenu.style.display = "flex";
-          } else {
-            currentMenu.style.display = "none";
-          }
-        }
-      }
-    });
-  </script>
 </html>
