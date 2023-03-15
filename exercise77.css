@@ -1,58 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exercise 77</title>
-    <link rel="stylesheet" href="exercise77.css" />
-  </head>
-  <body>
-    <div class="menu-container">
-      <h1>Location of the menu</h1>
+/* SECTION 1: STYLES FOR PRESENTATION */
+* {
+  box-sizing: border-box;
+}
 
-      <!-- RADIO BUTTONS FOR MENU POSITIONS -->
-      <input type="radio" name="menu-position" id="menu-top" checked />
-      <label for="menu-top">Menu at the top</label>
-      <input type="radio" name="menu-position" id="menu-bottom" />
-      <label for="menu-bottom">Menu at the bottom</label>
-      <input type="radio" name="menu-position" id="menu-left" />
-      <label for="menu-left">Menu on the left</label>
-      <input type="radio" name="menu-position" id="menu-right" />
-      <label for="menu-right">Menu on the right</label>
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15%;
+}
 
-      <!-- MENU CONTENT -->
-      <nav class="navigation">
-        <ul class="menu">
-          <li class="navigation-item">
-            Link 1
-            <ul class="drop-menu">
-              <li class="drop-item">Choice 1</li>
-              <li class="drop-item">Choice 2</li>
-              <li class="drop-item">Choice 3</li>
-              <li class="drop-item">Choice 4</li>
-            </ul>
-          </li>
-          <li class="navigation-item">
-            Link 2
-            <ul class="drop-menu">
-              <li class="drop-item">Choice 1</li>
-              <li class="drop-item">Choice 2</li>
-              <li class="drop-item">Choice 3</li>
-              <li class="drop-item">Choice 4</li>
-            </ul>
-          </li>
-          <li class="navigation-item">
-            Link 3
-            <ul class="drop-menu">
-              <li class="drop-item">Choice 1</li>
-              <li class="drop-item">Choice 2</li>
-              <li class="drop-item">Choice 3</li>
-              <li class="drop-item">Choice 4</li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </body>
-</html>
+.menu-container {
+  border: solid;
+}
+
+/* SECTION 2: HIDE THE TOGGLE OF THE CHECKBOXES */
+[type="checkbox"] {
+  display: none;
+}
+
+/* SECTION 3: HIDE THE NAVIGATION AND DROP-DOWN MENUS */
+.navigation {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.drop-menu {
+  display: none;
+}
+
+/* SECTION 4: STYLES FOR MAKING EVERYTHING LOOK GOOD (AT LEAST DECENT) */
+.menu-container nav {
+  background-color: aquamarine;
+  border: solid;
+}
+.menu-container h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navigation-item {
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  position: relative;
+}
+
+.navigation-item:hover {
+  color: aliceblue;
+  background-color: blue;
+}
+
+.drop-menu {
+  background-color: blueviolet;
+  list-style: none;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+
+.drop-menu-item {
+  padding: 10px;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.drop-menu-item:hover {
+  background-color: darkblue;
+}
+
+/* Style the button */
+#expand-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 11px;
+  background-color: blue;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+/* SECTION 5: SHOW THE MENUS IN THE CORRECT POSITIONS */
+#menu-top:checked ~ .navigation,
+#menu-bottom:checked ~ .navigation {
+  display: flex;
+  position: absolute;
+  left: 5%;
+  width: 90vw;
+}
+
+#menu-top:checked ~ .navigation {
+  top: 0;
+}
+
+#menu-bottom:checked ~ .navigation {
+  bottom: 0;
+}
+
+#menu-left:checked ~ .navigation,
+#menu-right:checked ~ .navigation {
+  display: flex;
+  flex-direction: column;
+  top: 5%;
+  width: 150px;
+  height: 90vh;
+  flex-direction: column;
+  position: absolute;
+}
+
+#menu-left:checked ~ .navigation {
+  left: 0;
+}
+
+#menu-right:checked ~ .navigation {
+  right: 0;
+}
+
+.navigation-item:hover .drop-menu {
+  display: block;
+}
+
+#menu-top:checked ~ .navigation .navigation-item:hover .drop-menu {
+  position: absolute;
+  width: 200px;
+  left: 10%;
+  top: 100%;
+}
+
+#menu-bottom:checked ~ .navigation .navigation-item:hover .drop-menu {
+  position: absolute;
+  width: 200px;
+  left: 10%;
+  top: -400%;
+}
+
+#menu-left:checked ~ .navigation .navigation-item:hover .drop-menu {
+  top: 0;
+  left: 100%;
+}
+
+#menu-right:checked ~ .navigation .navigation-item:hover .drop-menu {
+  top: 0;
+  left: -96%;
+}
+
+/* SECTION 6: HORIZONTAL OR VERTICAL MENU */
+#menu-top:checked ~ .navigation .navigation-item,
+#menu-bottom:checked ~ .navigation .navigation-item {
+  display: inline-block;
+}
+
+#menu-left:checked ~ .navigation .navigation-item,
+#menu-right:checked ~ .navigation .navigation-item {
+  display: block;
+}
